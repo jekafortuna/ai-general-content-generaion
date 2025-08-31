@@ -28,6 +28,28 @@ class Quality:
     standard: str = "standard"
     hd: str = "hd"
 
+# https://platform.openai.com/docs/guides/image-generation?image-generation-model=dall-e-3
+# Request:
+# curl https://api.openai.com/v1/images/generations \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer $OPENAI_API_KEY" \
+#   -d '{
+#     "model": "dall-e-3",
+#     "prompt": "smiling catdog",
+#     "size": "1024x1024",
+#     "style": "natural",
+#     "quality": "standard"
+#   }'
+
+#TODO:
+# You need to create some images with `dall-e-3` model:
+#   - Generate an image with 'Smiling catdog'
+#   - Play with configurations (size, style, quality)
+# ---
+# Hints:
+#   - Use OpenAIClient to connect to OpenAI API
+#   - Use /v1/images/generations endpoint
+#   - The link with generated image will be returned in response
 
 def main(model_name: str, request: str, size: Size = Size.square, style: Style = Style.natural, quality: Quality = Quality.standard):
     client = OpenAIClient(

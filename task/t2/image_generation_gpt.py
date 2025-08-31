@@ -24,6 +24,15 @@ from task.constants import OPENAI_HOST
 #   ]
 # }
 
+#TODO:
+# You need to create some images with `dall-e-3` model:
+#   - Generate an image with 'Smiling catdog'
+#   - Decode and save it locally
+# ---
+# Hints:
+#   - Use OpenAIClient to connect to OpenAI API
+#   - Use /v1/images/generations endpoint
+#   - The image will be returned in base64 format
 
 def main(model_name: str, request: str, **kwargs):
     client = OpenAIClient(
