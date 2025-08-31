@@ -25,7 +25,7 @@ from task.constants import OPENAI_HOST
 # }
 
 #TODO:
-# You need to create some images with `dall-e-3` model:
+# You need to create some images with `gpt-image-1` model:
 #   - Generate an image with 'Smiling catdog'
 #   - Decode and save it locally
 # ---
@@ -34,27 +34,4 @@ from task.constants import OPENAI_HOST
 #   - Use /v1/images/generations endpoint
 #   - The image will be returned in base64 format
 
-def main(model_name: str, request: str, **kwargs):
-    client = OpenAIClient(
-        endpoint=OPENAI_HOST+"/v1/images/generations",
-    )
 
-    response = client.call(
-        model=model_name,
-        prompt=request,
-        **kwargs
-    )
-    image_base64 = response["data"][0]["b64_json"]
-
-    image_bytes = base64.b64decode(image_base64)
-    filename= f"{datetime.now()}.png"
-    with open(filename, "wb") as f:
-        f.write(image_bytes)
-
-    print(f"Image saved as {filename}")
-
-
-main(
-    model_name="gpt-image-1",
-    request="smiling catdog"
-)

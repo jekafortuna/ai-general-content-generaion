@@ -51,21 +51,3 @@ class Quality:
 #   - Use /v1/images/generations endpoint
 #   - The link with generated image will be returned in response
 
-def main(model_name: str, request: str, size: Size = Size.square, style: Style = Style.natural, quality: Quality = Quality.standard):
-    client = OpenAIClient(
-        endpoint=OPENAI_HOST+"/v1/images/generations",
-    )
-
-    response = client.call(
-        model=model_name,
-        prompt=request,
-        size=size,
-        style=style,
-        quality=quality
-    )
-
-
-main(
-    model_name="dall-e-3",
-    request="smiling catdog"
-)
