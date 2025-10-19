@@ -14,5 +14,5 @@ from task.constants import OPENAI_HOST, OPENAI_API_KEY
 # ---
 # Hints:
 #   - Use /v1/audio/transcriptions endpoint
-#   - Use whisper-1 or gpt-4o-transcribe
+#   - Use whisper-1 or gpt-4o-transcribe model
 
