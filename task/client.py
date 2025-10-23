@@ -16,7 +16,7 @@ class OpenAIClient:
         self._api_key = "Bearer " + api_key
         self._endpoint = endpoint
 
-    def call(self, print_request = True, print_response = True, **kwargs) -> dict[str, Any]:
+    def call(self, print_request=True, print_response=True, **kwargs) -> dict[str, Any]:
         headers = {
             "Authorization": self._api_key,
             "Content-Type": "application/json"

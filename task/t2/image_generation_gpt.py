@@ -35,3 +35,28 @@ from task.constants import OPENAI_HOST
 #   - The image will be returned in base64 format
 
 
+def main(model_name: str, request: str, **kwargs):
+    client = OpenAIClient(endpoint=f"{OPENAI_HOST}/v1/images/generations")
+
+    response = client.call(
+        model=model_name,
+        prompt=request,
+        **kwargs
+    )
+
+    image_base64 = response["data"][0]["b64_json"]
+
+    image_bytes = base64.b64decode(image_base64)
+
+    filename = f"{datetime.now()}.png"
+
+    with open(filename, "wb") as file:
+        return file.write(image_bytes)
+
+    print(f"Image saved as {filename}")
+
+
+main(
+    model_name="gpt-image-1",
+    request="mythical tiger guardian, majestic and powerful, fantasy art style"
+)
